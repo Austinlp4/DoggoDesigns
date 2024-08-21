@@ -5,22 +5,24 @@ import { Product } from "../payload-types";
 import { trpc } from "@/trpc/client";
 import Link from "next/link";
 import { ProductListing } from "./product-listing";
+import Fuse from 'fuse.js';
 
 interface ProductReelProps {
     title: string;
     subtitle?: string;
     href?: string;
     query: TQueryValidator;
+    search?: string;
 }
 
 const FALLBACK_LIMIT = 4;
 
 export const ProductReel = (props: ProductReelProps) => {
-    const { title, subtitle, href, query } = props;
+    const { title, subtitle, href, query, search } = props;
 
     const { data: queryResults, isLoading } = trpc.getInfiniteProducts.useInfiniteQuery({
         limit: query.limit ?? FALLBACK_LIMIT,
-        query
+        query,
     }, {
         getNextPageParam: (lastPage) => lastPage.nextPage ?? undefined,
     });
@@ -29,9 +31,20 @@ export const ProductReel = (props: ProductReelProps) => {
         (page.items as unknown as Product[])
     ) ?? [];
 
+    // Fuzzy search implementation
+    const fuse = new Fuse(products, {
+        keys: ['name', 'description', 'tags'],
+        threshold: 0.4,
+        includeScore: true,
+    });
+
+    const filteredProducts = search
+        ? fuse.search(search).map(result => result.item)
+        : products;
+
     let map: (Product | null)[] = [];
-    if(products && products.length) {
-        map = products;
+    if(filteredProducts && filteredProducts.length) {
+        map = filteredProducts;
     } else if(isLoading) {
         map = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null);
     }

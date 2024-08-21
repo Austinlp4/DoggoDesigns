@@ -1,45 +1,87 @@
 
 export const PRODUCT_CATEGORIES = [
     {
-        label: "UI Kits",
-        value: "ui_kits" as const,
+        label: "Vector Designs",
+        value: "vector_designs" as const,
         featured: [
             {
                 name: "Editor Picks",
                 href: "#",
-                imageSrc: "/ui-kits/mixed.jpg"
+                imageSrc: "/vector_designs/mixed.jpg"
             },
             {
                 name: "New Arrivals",
                 href: "#",
-                imageSrc: "/ui-kits/blue.jpg"
+                imageSrc: "/vector_designs/blue.jpg"
             },
             {
                 name: "Bestsellers",
                 href: "#",
-                imageSrc: "/ui-kits/purple.jpg"
+                imageSrc: "/vector_designs/purple.jpg"
             }
         ]
     },
     {
-        label: "Icons",
-        value: "icons" as const,
+        label: "Logos",
+        value: "logos" as const,
         featured: [
             {
-                name: "Favorite Icon Picks",
+                name: "Favorite Logo Picks",
                 href: "#",
-                imageSrc: "/icons/picks.jpg"
+                imageSrc: "/logos/picks.jpg"
             },
             {
                 name: "New Arrivals",
                 href: "#",
-                imageSrc: "/icons/new.jpg"
+                imageSrc: "/logos/new.jpg"
             },
             {
                 name: "Bestsellers",
                 href: "#",
-                imageSrc: "/icons/bestsellers.jpg"
+                imageSrc: "/logos/bestsellers.jpg"
             }
         ]
-    }
+    },
+    {
+        label: "Prints",
+        value: "prints" as const,
+        featured: [
+            {
+                name: "Favorite Print Picks",
+                href: "#",
+                imageSrc: "/prints/picks.jpg"
+            },
+            {
+                name: "New Arrivals",
+                href: "#",
+                imageSrc: "/prints/new.jpg"
+            },
+            {
+                name: "Bestsellers",
+                href: "#",
+                imageSrc: "/prints/bestsellers.jpg"
+            }
+        ]
+    },
+    {
+        label: "Stock Photos",
+        value: "stock_photos" as const,
+        featured: [
+            {
+                name: "Favorite Logo Picks",
+                href: "#",
+                imageSrc: "/stock_photos/picks.jpg"
+            },
+            {
+                name: "New Arrivals",
+                href: "#",
+                imageSrc: "/stock_photos/new.jpg"
+            },
+            {
+                name: "Bestsellers",
+                href: "#",
+                imageSrc: "/stock_photos/bestsellers.jpg"
+            }
+        ]
+    },
 ]

@@ -224,10 +224,22 @@ export const Products: CollectionConfig = {
         {
             name: "tags",
             label: "Tags",
-            type: "relationship",
-            relationTo: "tags",
-            hasMany: true,
+            type: "array",
+            admin: {
+                position: "sidebar"
+            },
             required: false,
+            labels: {
+                singular: "Tag",
+                plural: "Tags"
+            },
+            fields: [
+                {
+                    name: "tag",
+                    type: "text",
+                    required: true
+                }
+            ]
         }
     ]
 };

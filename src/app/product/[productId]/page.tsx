@@ -1,14 +1,16 @@
-import { AddToCartButton } from "@/components/add-to-cart-button";
-import { ImageSlider } from "@/components/image-slider";
-import { MaxWidthWrapper } from "@/components/max-width-wrapper";
-import { ProductReel } from "@/components/product-reel";
-import { PRODUCT_CATEGORIES } from "@/config";
-import { getPayloadClient } from "@/get-payload";
-import { formatPrice } from "@/lib/utils";
-import { Product } from "@/payload-types";
+import { AddToCartButton } from "../../../components/add-to-cart-button";
+import { ImageSlider } from "../../../components/image-slider";
+import { MaxWidthWrapper } from "../../../components/max-width-wrapper";
+import { ProductReel } from "../../../components/product-reel";
+import { PRODUCT_CATEGORIES } from "../../../config";
+import { getPayloadClient } from "../../../get-payload";
+import { formatPrice } from "../../../lib/utils";
+import { Product } from "../../../payload-types";
 import { Check, Shield } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+type ProductCategory = (typeof PRODUCT_CATEGORIES)[number]['value'];
 
 interface PageProps {
     params: {
@@ -43,6 +45,10 @@ const Page = async ({
     const [product] = products;
 
     if(!product) return notFound();
+
+    if (product && !PRODUCT_CATEGORIES.map(({ value }) => value).includes(product.category as ProductCategory)) {
+        return notFound();
+    }
 
     const label = PRODUCT_CATEGORIES.find(({ value }) => value === product.category)?.label;
 
@@ -110,6 +116,12 @@ const Page = async ({
                                         <Check aria-hidden="true" className="size-5 flex-shrink-0 text-emerald-600" strokeWidth="3px"/>
                                         <p className="ml-2 text-sm text-muted-foreground">
                                             Eligible for instant delivery
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-6">
+                                        <p className="text-sm text-muted-foreground">
+                                            {typeof product?.description === 'string' ? product.description : ""}
                                         </p>
                                     </div>
                                 </section>

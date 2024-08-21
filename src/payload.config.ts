@@ -32,7 +32,7 @@ export default buildConfig({
         user: "users",
         bundler: webpackBundler(),
         meta: {
-            titleSuffix: "- DoggoDecals",
+            titleSuffix: "- DoggoDesigns",
             favicon: "/favicon.ico",
             ogImage: "/thumbnail.png"
         }
