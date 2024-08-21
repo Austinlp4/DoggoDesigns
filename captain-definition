@@ -2,15 +2,14 @@
   "schemaVersion": 2,
   "dockerfileLines": [
     "FROM node:18-alpine",
+    "RUN apk add --no-cache libc6-compat",
     "RUN mkdir -p /usr/src/app",
     "WORKDIR /usr/src/app",
-    "COPY package*.json ./",
-    "RUN npm cache clean --force",
-    "ENV NODE_OPTIONS=--max_old_space_size=2048",
-    "RUN npm ci --only=production",
+    "COPY package.json yarn.lock ./",
+    "RUN yarn install --frozen-lockfile --production",
     "COPY . .",
-    "RUN npm run build",
+    "RUN yarn build",
     "EXPOSE 3000",
-    "CMD [\"npm\", \"start\"]"
+    "CMD [\"yarn\", \"start\"]"
   ]
 }
