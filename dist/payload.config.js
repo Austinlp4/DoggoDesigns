@@ -35,7 +35,7 @@ exports.default = (0, config_1.buildConfig)({
         user: "users",
         bundler: (0, bundler_webpack_1.webpackBundler)(),
         meta: {
-            titleSuffix: "- DoggoDecals",
+            titleSuffix: "- DoggoDesigns",
             favicon: "/favicon.ico",
             ogImage: "/thumbnail.png"
         }

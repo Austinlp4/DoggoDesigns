@@ -1,4 +1,3 @@
-
 export const PRODUCT_CATEGORIES = [
     {
         label: "Vector Designs",
@@ -68,9 +67,9 @@ export const PRODUCT_CATEGORIES = [
         value: "stock_photos" as const,
         featured: [
             {
-                name: "Favorite Logo Picks",
+                name: "Editor's Choice",
                 href: "#",
-                imageSrc: "/stock_photos/picks.jpg"
+                imageSrc: "/stock_photos/editors_choice.jpg"
             },
             {
                 name: "New Arrivals",
@@ -78,10 +77,10 @@ export const PRODUCT_CATEGORIES = [
                 imageSrc: "/stock_photos/new.jpg"
             },
             {
-                name: "Bestsellers",
+                name: "Most Popular",
                 href: "#",
-                imageSrc: "/stock_photos/bestsellers.jpg"
+                imageSrc: "/stock_photos/popular.jpg"
             }
         ]
-    },
+    }
 ]
