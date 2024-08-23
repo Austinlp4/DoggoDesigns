@@ -58,7 +58,7 @@ export function constructMetadata({
       creator: '@joshtriedcoding',
     },
     icons,
-    metadataBase: new URL('http://doggo-designs.titan-shard.com/'),
+    metadataBase: new URL('https://doggodesigns.up.railway.app'),
     ...(noIndex && {
       robots: {
         index: false,
