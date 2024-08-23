@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            'localhost',
-            'doggodesigns-production.up.railway.app',
-            'doggo-designs.titan-shard.com',
-        ]
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+            {
+                protocol: 'http',
+                hostname: '**',
+            },
+        ],
     },
     webpack: (config, { isServer }) => {
         if (!isServer) {
