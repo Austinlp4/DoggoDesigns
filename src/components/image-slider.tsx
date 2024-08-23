@@ -95,6 +95,11 @@ export const ImageSlider = ({
                             className='-z-10 h-full w-full object-cover object-center'
                             src={url}
                             alt='Product image'
+                            onError={(e) => {
+                                console.error(`Error loading image: ${url}`, e);
+                                // Optionally set a fallback image
+                                // e.currentTarget.src = '/fallback-image.jpg';
+                            }}
                         />
                     </SwiperSlide>
                 ))}
