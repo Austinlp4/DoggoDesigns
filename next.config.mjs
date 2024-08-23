@@ -4,7 +4,7 @@ const nextConfig = {
         domains: [
             'localhost',
             'doggodesigns-production.up.railway.app',
-            'doggo-designs.titan-shard.com'
+            'doggo-designs.titan-shard.com',
         ]
     },
     webpack: (config, { isServer }) => {
